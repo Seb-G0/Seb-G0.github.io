@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackerRank - Sebastian Gonzalez</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+        }
+
+        footer {
+            /* Add flex: 0; to prevent the footer from growing */
+            flex: 0;
+            /* Optionally, add styles for better aesthetics */
+            background-color: #262626;
+            padding: 1rem;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1><span>HackerRank</span></h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Solutions.html">Solutions</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="problems" style="min-height: 1200px">
+    <div class="day-link">
+        <a href="The_Minion_Game.html">The Minion Game</a>
+    </div>
+
+    <div class="day-link">
+        <p>More Explanations Coming Soon!</p>
+    </div>
+</section>
+
+
+<footer id="main-footer">
+    <p>&copy; 2024 Sebastian Gonzalez</p>
+</footer>
+
+<script>
+    // JavaScript to toggle the footer visibility when user scrolls to the bottom
+    document.addEventListener('scroll', function() {
+        var mainFooter = document.getElementById('main-footer');
+        var scrollOffset = 200; // Adjust the offset as needed
+        var offset = window.innerHeight + window.scrollY + scrollOffset;
+        var bodyHeight = document.body.offsetHeight;
+
+        if (offset >= bodyHeight) {
+            mainFooter.style.display = 'block';
+        } else {
+            mainFooter.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

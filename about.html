@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Sebastian Gonzalez</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        .circle-image {
+            position: relative;
+            /*display: inline-block;*/
+            width: 30vw;
+            height: 30vw;
+            border-radius: 50%;
+            overflow: hidden; /* Ensure the image stays within the circle */
+            margin: 0 auto;
+            object-fit: cover;
+        }
+
+        .circle-image img {
+            width: 100%; /* Make sure the image fills the container */
+            height: 100%; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the container with the image, maintaining aspect ratio */
+        }
+
+
+
+        .text_container{
+            font-size: 0.8rem;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1><span>About Me</span></h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="Projects.html">Projects</a></li>
+        <li><a href="Solutions.html">Solutions</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <div class="text_container">
+        <p>Hi, my name is Sebastian, a student at MKA with a passion for Computer Science.
+            <br><br>
+            I have enjoyed programming since I started coding in Java in 7th grade. This has led me to solve computer science problems online and create my own projects.<br><br>
+
+            Outside computer science, I love to play soccer, and support Manchester United in the Premier League.
+            I also enjoy video games, with <i>Red Dead Redemption 2</i> currently being my favorite. When it comes to books, <i>Neuromancer</i> by William Gibson holds the top spot for me, with <i>Do Androids Dream of Electric Sheep?</i> by Philip K. Dick as a close second.
+            I also like philosophy and pondering the age-old debate of human nature versus nurture.
+
+            <br><br>I live with my parents and twin sister in New Jersey, and enjoy running around with my dog, Neo.
+
+            <br><br>My next big Computer Science projects include an algorithmic trading model that analyzes market data to make decisions and a natural language processing tool that uses rhetorical
+            analysis to identify bias on Social Media platforms and in news sources.
+
+        </p>
+    </div>
+
+    <img id="about-image" src="Headshot.jpg" class="circle-image">
+</section>
+
+<script>
+    // Array of image sources
+    var imageSources = ["Soccer.jpg", "Dog1.PNG", "Kiddos.JPG", "Headshot.jpg"];
+    var currentImageIndex = 0;
+
+    // Function to cycle through images
+    function cycleImages() {
+        var aboutImage = document.getElementById("about-image");
+
+        // Change the image source
+        aboutImage.src = imageSources[currentImageIndex];
+
+        // Increment the image index (loop back to the first image if at the end)
+        currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+    }
+
+    // Call cycleImages function on page load (optional)
+
+    // Set an interval to change images every 5 seconds (adjust as needed)
+    setInterval(cycleImages, 2000);
+</script>
+
+</body>
+</html>

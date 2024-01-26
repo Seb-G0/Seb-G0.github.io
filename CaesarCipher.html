@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caesar Cipher - Sebastian Gonzalez</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .code-container {
+      background-color: #333;
+      border: 1px solid #ccc;
+      overflow-x: auto; /* Enable horizontal scrolling if needed */
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+    }
+
+    footer {
+      /* Add flex: 0; to prevent the footer from growing */
+      flex: 0;
+      /* Optionally, add styles for better aesthetics */
+      background-color: #262626;
+      padding: 1rem;
+      text-align: center;
+      bottom: 0;
+      width: 100%;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><span>Caesar Cipher</span></h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Me</a></li>
+    <li><a href="Projects.html">Projects</a></li>
+    <li><a href="Solutions.html">Solutions</a></li>
+    <li><a href="Contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="puzzle content" style="min-height: 2100px">
+
+  <h2>Caesar Cipher</h2>
+  <div class="text">
+    <p>
+        A Caesar cipher is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+        <br>
+        <br>
+        There are two programs as part of this project. One program is a simple simulation of encoding and decoding text. The other attempts to guess the shift key using a dictionary.
+    </p>
+  </div>
+
+  <h2>Encoder and Decoder</h2>
+    <div class="text">
+        <p>
+            The program takes a .txt file or message, a shift key, and a mode from the user, and then shifts the text to the right to encode and to the left to decode. The program uses indices and modulo to shift the text.
+        </p>
+    </div>
+
+
+  <div class="code-container">
+            <pre><code>    ALPHA, alpha, numer = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "0123456789"
+    mode = input("Enter a mode (encode or decode): ")
+    while mode != "encode" and mode != "decode": mode = input("Mode not recognized: enter 'encode' or 'decode': ")
+    inp = input("Enter your message to be encoded or enter a file name ending with .txt: ")
+    if inp[-4:] == ".txt":
+        try:
+            inp = open(inp).read().splitlines()
+        except:
+            print("Text file not found")
+            exit()
+    key = input("Enter your shift key: ")
+    while not(key.isnumeric()): key = input("Enter your shift key as a number: ")
+    key = int(key)
+    if mode == "decode":
+        key *= -1
+    String = ""
+    for char in inp:
+        if char.isalnum():
+            if char.isnumeric():
+                char = numer[(numer.index(char) + key) % 10]
+            elif char.isupper():
+                char = ALPHA[(ALPHA.index(char) + key) % 26]
+            else:
+                char = alpha[(alpha.index(char) + key) % 26]
+        String += char
+    print(String)</code></pre></div>
+
+    <h2>Caesar Cipher Cracker</h2>
+    <div class="text">
+        <p>
+            This program only takes an encrypted string, assuming that the shift key is unknown. It iterates over all possible shift keys, totaling 26, and parses through the shifted texts. The texts are graded based on the number of words recognized as part of the English language. There are two sets of words: common words and all the words in the English lexicon. Common words carry more weight than less common ones to enhance accuracy. The program then prints the shifted text that is most identifiable as English, along with the corresponding shift key.
+        </p>
+    </div>
+
+    <div class="code-container">
+            <pre><code>    ALPHA, alpha, numer = "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz", "0123456789"
+    wordDict = open("wordDict.txt").read().splitlines()
+    commonWords = open("CommonWords.txt").read().splitlines()
+    encryptedString = input("Enter your encrypted word or sentence: ")
+
+    def cipher(key, inp):
+        key *= -1
+        String = ""
+        for char in inp:
+            if char.isalnum():
+                if char.isnumeric():
+                    char = numer[(key + numer.index(char)) % 10]
+                elif char.isupper():
+                    char = ALPHA[(key + ALPHA.index(char)) % 26]
+                else:
+                    char = alpha[(key + alpha.index(char)) % 26]
+            String += char
+        return String
+    possibilities = []
+
+    def value(dString):
+        value = 1
+        if " " in dString:
+            dString = dString.split(" ")
+        else:
+            dstring = [dString]
+        for word in dString:
+            if word in wordDict:
+                value += 1
+            if word in commonWords:
+                value *= 10
+        return value
+
+    for key in range(1, 26):
+        decryptedString = cipher(key, encryptedString)
+        possibilities.append(
+            (value(decryptedString), decryptedString, key)
+        )
+
+    possibilities.sort()
+    possibilities.reverse()
+    print("Your cipher is most likely:")
+    print(possibilities[0][1])
+    print("The key is", possibilities[0][2])
+
+    print()
+    print("Other possibilities are: ")
+    for possible in possibilities[1:11]:
+        print("answer:", possible[1], "key:", possible[2])</code></pre></div>
+
+</section>
+
+
+<footer id="main-footer">
+  <p>&copy; 2024 Sebastian Gonzalez</p>
+</footer>
+
+<script>
+  // JavaScript to toggle the footer visibility when user scrolls to the bottom
+  document.addEventListener('scroll', function() {
+    var mainFooter = document.getElementById('main-footer');
+    var scrollOffset = 200; // Adjust the offset as needed
+    var offset = window.innerHeight + window.scrollY + scrollOffset;
+    var bodyHeight = document.body.offsetHeight;
+
+    if (offset >= bodyHeight) {
+      mainFooter.style.display = 'block';
+    } else {
+      mainFooter.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

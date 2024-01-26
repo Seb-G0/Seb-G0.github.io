@@ -1,0 +1,219 @@
+/* Set base font size */
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto', Courier, monospace;
+    background-color: #262626;
+    color: #ccc;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+h1 span {
+    color: #4CAF50; /* Green color for the < > tags */
+}
+
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 1rem;
+    margin-bottom: 0.5rem;
+}
+
+nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.45rem;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+section {
+    padding: 1rem;
+    text-align: left;
+}
+
+footer {
+    position: relative;
+    background-color: #262626;
+    bottom: 0;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+}
+
+.circle-image {
+    position: relative;
+    /*left: 30%;*/
+    display: inline;
+    margin: 0 auto;
+    width: 40vw; /* Adjust as needed */
+    max-width: 30%; /* Set a maximum width if necessary */
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden; /* Ensure the image stays within the circle */
+}
+
+p strong a {
+    font-weight: bold; /* Make the linked text bold */
+}
+
+p a {
+    color: #4CAF50; /* Change the color code to the desired color */
+    text-decoration: none; /* Remove underlines by default */
+    font-size: 1.5rem;
+}
+
+p a:hover {
+    text-decoration: underline; /* Add underline on hover if desired */
+}
+
+p strong a {
+    font-weight: bold; /* Make the linked text bold */
+}
+
+p {
+   font-size: 120%;
+}
+
+.text_container {
+    width: 65%; /* Set the width to 60% of the screen */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding for better readability */
+    float: left;
+    /* Add a border for visibility */
+}
+
+.project_container {
+    width: 50%; /* Set the width to 60% of the screen */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding for better readability */
+    float: left;
+    font-size: 1rem;
+    /* Add a border for visibility */
+}
+
+.day-link a {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    text-align: left;
+
+}
+
+.day-link a:hover {
+    text-decoration: underline;
+}
+
+.day-link strong a {
+    font-weight: bold;
+}
+
+.day-link {
+    margin-bottom: 1rem; /* Adjust the margin as needed */
+}
+
+.day-link p {
+    font-size: 1.5rem;
+}
+
+h3 strong a {
+    font-weight: bold; /* Make the linked text bold */
+}
+
+h3 a {
+    color: #4CAF50; /* Change the color code to the desired color */
+    text-decoration: none; /* Remove underlines by default */
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+
+
+#contact form {
+    max-width: 400px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+#contact form label,
+#contact form input,
+#contact form textarea,
+#contact form button {
+    display: block;
+    margin-bottom: 20px; /* Adjust the margin between elements */
+    width: 100%;
+}
+
+#contact form label {
+    font-weight: bold; /* Make labels bold */
+}
+
+#contact form input,
+#contact form textarea {
+    padding: 10px; /* Increase padding for input elements */
+    background-color: #f0f0f0; /* Light gray background color */
+    border: 1px solid #ccc; /* Add a border for visual separation */
+    border-radius: 5px; /* Add rounded corners */
+}
+
+#contact form button {
+    padding: 15px; /* Increase padding for the submit button */
+    background-color: #0077cc; /* Change the background color of the button */
+    color: #fff; /* Set text color to white */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact form button:hover {
+    background-color: #005580; /* Darker color on hover */
+}
+
+h {
+    font-size: 1.5rem;
+}
+
+.solution img {
+    max-width: 15%; /* Adjust the max-width as needed */
+    margin-right: 20%; /* Adjust the margin as needed */
+    border-radius: 6%; /* Add rounded corners if desired */
+    float: right;
+}
+
+strong a {
+    font-weight: bold; /* Make the linked text bold */
+}
+
+a {
+    color: #4CAF50; /* Change the color code to the desired color */
+    text-decoration: none; /* Remove underlines by default */
+    font-size: 1.5rem;
+}
+
+a:hover {
+    text-decoration: underline; /* Add underline on hover if desired */
+}
+
+strong a {
+    font-weight: bold; /* Make the linked text bold */
+}
